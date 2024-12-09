@@ -1,0 +1,11 @@
+<a href="{{ target }}" class="ui-menu-item 
+  {{ if icon }} has-icon {{ /if }} 
+  {{ if size }} {{ size }} {{ /if }} 
+  {{ if content }} has-label {{ /if }} 
+  {{ if selected }} is-selected {{ /if }}"
+  {{ if title }} title="{{ title }}" {{ /if }}
+  {{ if event }} data-{{ event.type }}="{{ event.name }}" {{ /if }}
+  {{ if params }} data-params="{{ params }}" {{ /if }}>
+  {{ if icon }}<img src="{{ icon |> icon("material-200") }}" inline class="ui-menu-item-icon" />{{ /if }}
+  {{ if content }}<span class="ui-menu-item-label">{{ content }}</span>{{ /if }}
+</a>

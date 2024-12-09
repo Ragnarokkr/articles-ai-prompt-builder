@@ -1,0 +1,109 @@
+@import "https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css";
+@import "/_includes/_colors.css";
+
+/* import:fonts */
+:root {
+
+  /* TODO: ADJUST SETTINGS FOR LIGHT/DARK THEMES */
+  /* LIGHT/DARK SETTINGS */
+  @media (prefers-color-scheme: light) {
+    --theme-ui-border-factor: 1.1;
+    --theme-ui-hover-factor: 0.9;
+    --theme-ui-active-factor: 0.82;
+    --theme-ui-disabled-factor: 0.95;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    --theme-ui-border-factor: 1.1;
+    --theme-ui-hover-factor: 1.15;
+    --theme-ui-active-factor: 1.3;
+    --theme-ui-disabled-factor: 1.2;
+  }
+
+  /* GENERIC UI SETTINGS */
+  --theme-ui-spacing: 0.25rem;
+  /* 4px */
+  --theme-ui-border-size: 0.0625rem;
+  --theme-ui-radius: var(--theme-ui-spacing);
+  --theme-ui-shadow-size: calc(var(--theme-ui-spacing) * 2);
+  --theme-ui-shadow-opacity: 0.6;
+  --theme-ui-text-shadow-size: 0.15em;
+  --theme-ui-text-shadow-opacity: 0.75;
+  --theme-ui-blur-size: var(--theme-ui-spacing);
+  --theme-ui-transition-duration: 150ms;
+  --theme-ui-transition-timing: ease;
+
+  /* FONT SETTINGS */
+  --theme-fnt-body: BodyText,
+  system-ui;
+  --theme-fnt-mono: MonoText,
+  monospace;
+
+  /* GENERIC COLOR SETTINGS */
+  --theme-clr-accent: var(--clr-accent);
+  --theme-clr-on-surface: var(--clr-foreground);
+  --theme-clr-surface: var(--clr-background);
+  --theme-clr-info: var(--clr-blue);
+  --theme-clr-action: var(--theme-clr-info);
+  --theme-clr-success: var(--clr-green);
+  --theme-clr-warning: var(--clr-yellow);
+  --theme-clr-danger: var(--clr-red);
+  --theme-clr-error: var(--theme-clr-danger);
+
+  /* BUTTON SETTINGS */
+  --theme-btn-size-small: 1rem;
+  --theme-btn-size-medium: 2rem;
+  --theme-btn-size-large: 3rem;
+  --theme-btn-clr-on-surface: var(--theme-clr-on-surface);
+  --theme-btn-clr-surface: var(--theme-clr-surface);
+  --theme-btn-clr-border: oklch(from var(--theme-btn-clr-on-surface) calc(l * 1.15) c h);
+
+  /* LINK SETTINGS */
+  --theme-link-spacing: var(--theme-ui-spacing);
+  --theme-link-clr-on-surface: var(--theme-clr-accent);
+  --theme-link-clr-on-surface-hover: light-dark(var(--theme-clr-surface), var(--theme-clr-on-surface));
+  --theme-link-clr-surface-hover: oklch(from var(--theme-clr-accent) l c h / 0.5);
+  --theme-link-clr-surface-active: oklch(from var(--theme-clr-accent) l c h / 0.75);
+
+  /* INPUTs SETTINGS */
+  --theme-input-ui-spacing: calc(var(--theme-ui-spacing) * 2);
+  --theme-input-ui-border-size: var(--theme-ui-border-size);
+  --theme-input-clr-border-focus: var(--theme-clr-accent);
+  --theme-input-clr-border-hover: oklch(from var(--theme-input-clr-border-focus) l c h / calc(var(--theme-ui-shadow-opacity) * 0.8));
+  --theme-input-ui-shadow: inset 0 0 var(--theme-ui-shadow-size) oklch(from var(--theme-input-clr-border-focus) l c h / var(--theme-ui-shadow-opacity));
+
+  /* DRAWER SETTINGS */
+  --theme-drawer-ui-spacing: calc(var(--theme-ui-spacing) * 2);
+  --theme-drawer-clr-surface: oklch(from var(--theme-clr-surface) calc(l * 1.2) c h);
+  --theme-drawer-btn-ui-spacing: calc(var(--theme-ui-spacing) * 4);
+  --theme-drawer-btn-ui-size: calc(3rem - var(--theme-drawer-btn-ui-spacing));
+  --theme-drawer-btn-clr-surface: oklch(from var(--theme-drawer-clr-surface) calc(l * 1.2) c h);
+  --theme-drawer-btn-clr-surface-hover: oklch(from var(--theme-drawer-btn-clr-surface) calc(l * var(--theme-ui-hover-factor)) c h);
+  --theme-drawer-btn-clr-surface-active: oklch(from var(--theme-drawer-btn-clr-surface) calc(l * var(--theme-ui-active-factor)) c h);
+  --theme-drawer-ui-inline-size: calc(var(--theme-drawer-btn-ui-size) + var(--theme-drawer-btn-ui-spacing) * 2);
+  --theme-drawer-ui-inline-size-opened: calc(var(--theme-drawer-ui-inline-size) + 10em);
+
+  /* MENU SETTINGS */
+  --theme-menu-item-ui-spacing: var(--theme-drawer-btn-ui-spacing);
+  --theme-menu-item-ui-gap: calc(var(--theme-ui-spacing) * 2);
+  --theme-menu-item-clr-surface-hover: oklch(from var(--theme-drawer-clr-surface) calc(l * var(--theme-ui-hover-factor)) c h);
+  --theme-menu-item-clr-surface-active: oklch(from var(--theme-drawer-clr-surface) calc(l * var(--theme-ui-active-factor)) c h);
+  --theme-menu-item-clr-surface-selected: var(--theme-clr-accent);
+  --theme-menu-item-icon-ui-size: var(--theme-drawer-btn-ui-size);
+  --theme-menu-item-icon-clr-on-surface: var(--theme-clr-on-surface);
+  --theme-menu-item-icon-clr-on-surface-selected: var(--theme-drawer-clr-surface);
+  --theme-menu-item-label-ui-spacing: calc(--theme-drawer-btn-spacing * .5);
+  --theme-menu-item-label-clr-on-surface: var(--theme-clr-on-surface);
+  --theme-menu-item-label-clr-on-surface-selected: var(--theme-drawer-clr-surface);
+
+  /* INFO BARS SETTINGS */
+  --theme-bar-ui-inline-spacing: calc(var(--theme-ui-spacing) * 4);
+  --theme-bar-ui-block-size: calc(var(--theme-drawer-btn-ui-size) + var(--theme-drawer-btn-ui-spacing) * 2);
+  --theme-bar-fnt-size: 2em;
+  --theme-bar-clr-surface: oklch(from var(--theme-clr-surface) calc(l * 1.2) c h);
+
+  /* PANELS */
+  --theme-panels-ui-spacing: calc(var(--theme-ui-spacing) * 4);
+
+  color-scheme: light dark;
+}

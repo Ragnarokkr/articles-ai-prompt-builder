@@ -1,0 +1,11 @@
+<section class="ui-panel" 
+  id="{{ id }}"
+  {{ if event }} 
+    {{ for ev of event }}
+      data-{{ ev.type }}="{{ ev.name }}"
+    {{ /for }}
+  {{ /if }}
+  {{ if params }} data-params="{{ params }}" {{ /if }}
+  >
+  {{ content }}
+</section>

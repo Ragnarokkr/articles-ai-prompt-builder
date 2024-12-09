@@ -1,0 +1,14 @@
+<button id="{{ id }}" class="ui-button
+    {{ if color }} {{ color }} {{ /if }}
+    {{ if icon }} has-icon     
+      {{ if size }} {{ size }} {{ /if }}
+    {{ /if }} 
+    {{ if content }} has-label {{ /if }}
+    {{ if flat }} is-flat {{ /if }}"
+    {{ if title }} title="{{ title }}" {{ /if }}
+    {{ if event }} data-{{ event.type }}="{{ event.name }}" {{ /if }}
+    {{ if params }} data-params="{{ params }}" {{ /if }}
+    {{ if disabled }} disabled {{ /if }}>    
+  {{ if icon }}<img src="{{ icon |> icon("material-200") }}" inline {{ /if }} />
+  {{ if content }}<span class="ui-button-label">{{ content }}</span>{{ /if }}
+</button>

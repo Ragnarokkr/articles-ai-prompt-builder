@@ -1,0 +1,26 @@
+{{ comp Dialog ({ id: "dialog-tag-setup" }) }}
+  {{ comp DialogContent }}
+  {{ /comp }}
+  {{ comp DialogActions }}
+    {{ comp Button ({ id: "btn-dialog-tag-setup-ok", icon: "check:outlined", flat: true, event: { type: 'click', name: 'dialog:inputs:tag-ok' } }) }}
+      <span>OK</span>
+    {{ /comp }}
+    {{ comp Button ({ id: "btn-dialog-tag-setup-close", icon: "close:outlined", flat: true, event: { type: 'click', name: 'dialog:inputs:tag-close' } }) }}
+      <span>Close</span>
+    {{ /comp }}
+  {{ /comp }}
+{{ /comp }}
+
+{{ comp Dialog ({ id: "dialog-prompt" }) }}
+  {{ comp DialogContent }}
+    {{ comp.input ({ id: "prompt-body-text", type: "textarea" }) }}
+  {{ /comp }}
+  {{ comp DialogActions }}
+    {{ comp Button ({ id: "btn-dialog-prompt-copy", icon: "content_copy:outlined", flat: true, event: { type: 'click', name: 'dialog:inputs:copy-prompt' }, params: "{'target' : '#dialog-prompt'}" }) }}
+      <span>Copy</span>
+    {{ /comp }}
+    {{ comp Button ({ id: "btn-dialog-prompt-close", icon: "close:outlined", flat: true, event: { type: 'click', name: 'dialog:inputs:close-prompt' } }) }}
+      <span>Close</span>
+    {{ /comp }}
+  {{ /comp }}
+{{ /comp }}

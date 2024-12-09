@@ -1,0 +1,36 @@
+{{ comp Panel { id: 'panel-inputs' } }}
+  <div class="row">
+    <div id="tags-area"></div>
+  </div>
+  <div class="row">
+    <div id="text-chips-area"></div>
+  </div>
+  <div class="row">
+    {{ comp Button ({ 
+      id: "btn-build-prompt", 
+      icon: "chip_extraction:outlined", 
+      size: "medium", 
+      flat: true, 
+      color: "success", 
+      disabled: true, 
+      event: { type: "click", name: "panel:inputs:build-prompt"}, 
+      params: "{ 'target' : '#dialog-prompt' }" }) 
+    }}
+    Build Prompt
+    {{ /comp }}
+    {{ comp Button ({ 
+      id: "btn-reset-chips", 
+      icon: "restart_alt:outlined", 
+      size: "medium", 
+      flat: true, 
+      color: "danger", 
+      disabled: true, 
+      event: { type: "click", name: "panel:inputs:reset-chips"} }) 
+    }}
+    Reset
+    {{ /comp }}
+  </div>
+
+  {{ include "layouts/partials/panel-inputs-dialogs.vto" }}
+  
+{{ /comp }}

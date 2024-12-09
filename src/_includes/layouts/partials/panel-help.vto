@@ -1,0 +1,135 @@
+{{ comp Panel { id: 'panel-help' } }}
+<div class="row">
+  <h2>Welcome to {{ appName }}!</h2>
+  <p>This is a personal recreational programming exercise—a proof of concept for a web application designed to assist
+    users in creating textual prompts for AI assistants (such as Gemini, Chat-GPT, Claude, or any other LLM) for further
+    processing.</p>
+  <p>The application primarily focuses on articles as the target output.</p>
+  <p>It is subdivided into six interconnected sections: <strong>Variables</strong>, <strong>System Prompt</strong>, 
+  <strong>Inputs</strong>, <strong>Options</strong>, <strong>Import/Export</strong>, and this section.
+  </p>
+</div>
+
+<div class="row">
+  <h3>Variables</h3>
+  <section>
+    <p>In the <strong>Variables</strong> section, you can define all the custom variables that will be used within the
+      System Prompt and/or
+      the text chips provided in the Inputs section.</p>
+    <p>Each variable has a name and can be of either single or multiple selection type. The data must be textual and
+      should
+      be entered one item per line. Each entry will be available for selection in the Inputs section.</p>
+  </section>
+</div>
+
+<div class="row">
+  <h3>System Prompt</h3>
+  <section>
+    <p>The <strong>System Prompt</strong> section is straightforward; it allows you to define the text for the system
+      prompt. This prompt
+      serves to instruct the AI assistant on how to process the subsequent text you will provide.</p>
+    <p>In the System Prompt, it is possible (and often expected) to use both the custom variables defined in the
+      Variables section and the predefined ones by enclosing the variable name in double curly braces (e.g.,
+      <code>{{ "{{variable}}" |> escape }}</code>).</p>
+  </section>
+</div>
+
+<div class="row">
+  <h3>Inputs</h3>
+  <section>
+    <p>In the <strong>Inputs</strong> section, you will add all the text chips that define the body of the text to be
+      provided to the AI
+      assistant, alongside the system prompt. Text chips can include both custom and predefined variables by enclosing
+      the variable name in double curly braces (e.g.,
+      <code>{{ "{{variable}}" |> escape }}</code>). You can add,
+      rearrange, or remove chips as needed.</p>
+    <p>To configure the data for a specific variable to be used in the prompt you’re working on (note that variables are
+      reset each time), simply click on the respective tag. A dialog will appear, allowing you to set the item(s) to be
+      used.</p>
+    <p>By clicking the <strong>Build Prompt</strong> button, you can open another dialog for a final review of the
+      generated prompt text
+      before copying and pasting it into your favorite LLM.</p>
+  </section>
+</div>
+
+<div class="row">
+  <h3>Options</h3>
+  <section>
+    <p>This section is quite self-explanatory. Here, you can configure all the global settings that will affect the
+      final prompt result. (Still a Work in Progress).</p>
+  </section>
+</div>
+
+<div class="row">
+  <h3>Import/Export</h3>
+  <section>
+    <p>In the Import/Export section, you can import previously saved configurations or export a new one to your
+      computer.
+      Configurations will save your defined variables, options, and system prompt, but chips are never saved.</p>
+    <p>To import a configuration, click the Import button and select the JSON file containing the previously exported
+      configuration, or simply drag and drop the file from your folder into the window (this works only if the
+      Import/Export
+      panel is currently open). Once the file is imported, be sure to verify that everything you are importing is
+      correct
+      before clicking the Accept button.</p>
+    <p>To export a configuration, just click the Export button and choose where to save the JSON file.</p>
+    <p><strong>Please note that everything will be overwritten by the newly imported configuration file. Be sure to
+        create a
+        backup copy by exporting your current configuration before importing if you have data you want to
+        reuse.</strong>
+    </p>
+  </section>
+</div>
+
+<div class="row">
+  <hr>
+  <h3>Predefined Variables</h3>
+  <p>The application provides some predefined variables that can be used within the system prompt and text chips. Please
+    note that if a custom variable with the same name is created, the custom variable will take precedence over the
+    predefined one.</p>
+  <table class="ui-table">
+    <thead><tr><th>Variable</th><th>Syntax</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td><strong>context</strong></td><td><code>{{ "{{context}}" }}</code></td><td>this is the placeholder for all the text chips defined in Inputs section. <strong>BE CAREFUL!</strong> Never use it inside text chips, as it will generate an infinite loop that could crash the app.</td></tr>
+      <tr><td><strong>date</strong></td><td><code>{{ "{{date}}" }}</code></td><td>prints out current date</td></tr>
+      <tr><td><strong>seo</strong></td><td><code>{{ "{{seo:text}}" }}</code></td><td>it corresponds to the "Enable SEO" option. If the option is set, 'text' will be printed; otherwise, nothing will be printed.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="row">
+  <hr>
+  <h3>Credits</h3>
+  <p>This project was developed using <a href="https://www.typescriptlang.org/">Typescript</a>, which was then
+    transpiled
+    into JavaScript with the help of <a href="https://esbuild.github.io/">esbuild</a>. For
+    styling, CSS was processed using <a href="https://lightningcss.dev/">Lightning CSS</a>, ensuring a modern and
+    efficient approach to styling the website. The overall structure and functionality of the site were built utilizing
+    <a href="https://lume.land/">lume.land</a>, a
+    powerful static site generator. To enhance the visual appeal, icons were sourced from <a
+      href="https://fonts.google.com/icons">Google Material Icons</a>
+    and <a href="https://xandemon.github.io/developer-icons">Developer Icons</a>, while the typography features the
+    elegant <a href="https://fonts.google.com/specimen/Inter">Inter</a> font alongside the monospaced <a
+      href="https://fonts.google.com/specimen/JetBrains+Mono">JetBrains Mono</a> font, providing a clean and readable
+    interface for users.</p>
+    
+  <div class="icons">
+    <img src="static/img/icons/developer-icons/html5.svg" inline />
+    <img src="static/img/icons/developer-icons/css.svg" inline />
+    <img src="static/img/icons/developer-icons/javascript.svg" inline />
+    <img src="static/img/icons/developer-icons/typescript.svg" inline />
+    <img src="static/img/icons/developer-icons/deno.svg" inline />
+    <img src="static/img/icons/developer-icons/esbuild.svg" inline />
+    <img src="static/img/icons/developer-icons/git.svg" inline />
+    <img src="static/img/icons/developer-icons/github-dark.svg" inline />
+    <img src="static/img/icons/developer-icons/vscode.svg" inline />
+  </div>
+</div>
+
+<div class="row">
+  <hr>
+  <p><strong>{{ appName }}</strong> - v{{ appVersion }} ({{ appCodeName }})<br />
+    {{ appCopyright}}, {{ appAuthor }}. {{ appLicense }}.<br />
+    Last update: {{ appReleaseDate }}</p>
+</div>
+{{ /comp }}

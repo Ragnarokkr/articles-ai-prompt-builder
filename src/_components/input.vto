@@ -1,0 +1,47 @@
+<div class="ui-input">
+  {{ if type === "checkbox" || type === "radio "}}
+  <input 
+    type="{{ type }}" 
+    id="{{ id }}"
+    name="{{ id }}"
+    {{ if event }} data-{{ event.type }}="{{ event.name }}" {{ /if }}
+    {{ if params }} data-params="{{ params }}" {{ /if }}
+    {{ if disabled }} disabled {{ /if }}
+  />
+  <label for="{{ id }}">{{ label }}</label>
+
+  {{ else if type === "select" }}
+  <label for="{{ id }}">{{ label }}</label>
+  <select 
+    id="{{ id }}" 
+    name="{{ id }}"
+    {{ if event }} data-{{ event.type }}="{{ event.name }}" {{ /if }}
+    {{ if params }} data-params="{{ params }}" {{ /if }}
+    {{ if disabled }} disabled {{ /if }}>
+    {{ for option of options }}
+    <option value="{{ option.value }}">{{ option.label }}</option>
+    {{ /for }}
+  </select>
+  
+  {{ else if type === "textarea" }}
+  <label for="{{ id }}">{{ label }}</label>
+  <textarea id="{{ id }}" name="{{ id }}"
+    {{ if event }} data-{{ event.type }}="{{ event.name }}" {{ /if }}
+    {{ if params }} data-params="{{ params }}" {{ /if }}
+    {{ if disabled }} disabled {{ /if }}
+    {{ if placeholder }} placeholder="{{ placeholder }}" {{ /if }}
+  ></textarea>
+
+  {{ else }}
+  <label for="{{ id }}">{{ label }}</label>
+  <input 
+    type="{{ type }}" 
+    id="{{ id }}"
+    name="{{ id }}"
+    {{ if placeholder }} placeholder="{{ placeholder }}" {{ /if }}
+    {{ if params }} data-params="{{ params }}" {{ /if }}
+    {{ if event }} data-{{ event.type }}="{{ event.name }}" {{ /if }}
+    {{ if disabled }} disabled {{ /if }}
+  />
+{{ /if }}
+</div>

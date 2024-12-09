@@ -1,0 +1,36 @@
+{{ comp Dialog ({ id: "dialog-variables" }) }}
+  {{ comp DialogContent }}
+    {{ comp Row }}
+      {{ comp.input ({ id: "variable-id", type: "text", label: "ID:", disabled: true }) }}
+    {{ /comp }}
+    {{ comp Row }}
+      {{ comp.input ({ id: "variable-name", type: "text", label: "Name:", event: { type: 'change', name: 'context:variables:change' }, params: "{ 'context': 'variables.varName' }" }) }}
+      {{ comp.input ({ id: "variable-type", type: "select", label: "Type:", options: [{value:"single", label:"single"}, {value:"multiple", label:"multiple"}], event: { type: 'change', name: 'context:variables:change' }, params: "{ 'context': 'variables.varType' }"  }) }}
+    {{ /comp }}
+    {{ comp Row }}
+      {{ comp.input ({ id: "variable-data", type: "textarea", label: "Data:", placeholder: "Enter here one value per row", event: { type: 'change', name: 'context:variables:change' }, params: "{ 'context': 'variables.varData' }"  }) }}
+    {{ /comp }}
+  {{ /comp }}
+  {{ comp DialogActions }}
+    {{ comp Button ({ id: "btn-dialog-variables-ok", icon: "check:outlined", flat: true, event: { type: 'click', name: 'dialog:variables:ok' } }) }}
+      <span>OK</span>
+    {{ /comp }}
+    {{ comp Button ({ id: "btn-dialog-variables-close", icon: "close:outlined", flat: true, event: { type: 'click', name: 'dialog:variables:close' } }) }}
+      <span>Close</span>
+    {{ /comp }}
+  {{ /comp }}
+{{ /comp }}
+
+{{ comp Dialog ({ id: "dialog-confirm-variables" }) }}
+  {{ comp DialogContent }}
+    <p>Are you sure you want to permanently remove the selected variable?</p>
+  {{ /comp }}
+  {{ comp DialogActions }}
+    {{ comp Button ({ id: "btn-dialog-variables-confirm", icon: "check:outlined", color: "danger", flat: true, event: { type: 'click', name: 'dialog:variables:confirm' } }) }}
+      <span>Confirm</span>
+    {{ /comp }}
+    {{ comp Button ({ id: "btn-dialog-variables-reject", icon: "close:outlined", color: "ok", flat: true, event: { type: 'click', name: 'dialog:variables:reject' } }) }}
+      <span>Reject</span>
+    {{ /comp }}
+  {{ /comp }}
+{{ /comp }}

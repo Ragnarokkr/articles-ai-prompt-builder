@@ -1,0 +1,14 @@
+:root {
+  --clr-accent: light-dark(oklch(0.48 0.25 271.65 / 1),
+      oklch(0.68 0.25 271.65 / 1));
+  --clr-foreground: light-dark(oklch(0.26 0 0 / 1), oklch(0.92 0 0 / 1));
+  --clr-background: light-dark(oklch(0.92 0 0 / 1), oklch(0.26 0 0 / 1));
+  --clr-blue: light-dark(oklch(.7539 0.1653 251.34),
+      oklch(.6139 0.1653 251.34));
+  --clr-green: light-dark(oklch(.7539 0.1481 147.57),
+      oklch(.6139 0.1481 147.57));
+  --clr-yellow: light-dark(oklch(0.878 0.1481 81.74 / 1),
+      oklch(0.75 0.1481 91.74 / 1));
+  --clr-red: light-dark(oklch(0.66 0.14 21.07 / 1),
+      oklch(0.46 0.14 21.07 / 1));
+}

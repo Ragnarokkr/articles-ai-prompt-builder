@@ -1,0 +1,12 @@
+<aside id="drawer" class="ui-drawer">
+  <div class="ui-drawer-toggle">
+    {{ comp.button ({ 
+      id: "toggle-button", 
+      icon:"menu:outlined", 
+      size:"medium", 
+      flat: true,
+      event: { type: "click", name: "drawer:toggle" },
+      params: "{ 'target': '#drawer' }" }) }}
+  </div>
+  {{ comp.menu ({ id: "menu", items: menuItems }) }}
+</aside>

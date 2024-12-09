@@ -1,0 +1,8 @@
+{{ comp Panel { id: 'panel-system-prompt' } }}
+  <div class="row">
+    <p>Define your system prompt here. It can include both custom and predefined variables.</p>
+  </div>
+  <div class="row">
+    {{ comp.input ({ id: 'system-prompt', type: 'textarea', placeholder: "Type in here your system prompt.", event: { type: 'change', name: 'context:system-prompt:change' }, params: "{ 'context': 'systemPrompt.value' }" }) }}
+  </div>
+{{ /comp }}

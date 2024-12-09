@@ -1,0 +1,26 @@
+{{ comp Panel { id: 'panel-variables' } }}
+
+  <div id="table-variables" class="ui-table">
+    <div class="ui-table-head">
+      <div class="ui-table-row">
+        <span class="ui-table-cell">Name</span>
+        <span class="ui-table-cell">Type</span>
+        <span class="ui-table-cell">
+          {{ comp.button ({ 
+            id: "btn-add-variable", 
+            icon: "variable_add:outlined", 
+            size: "medium", 
+            flat: true, 
+            title: "Add Variable",
+            event: { type: "click", name: "panel:variables:add" }, 
+            params: "{ 'target': '#dialog-variables' }" 
+          }) }}
+        </span>
+      </div>
+    </div>
+    <div class="ui-table-body"></div>
+  </div>
+
+  {{ include "layouts/partials/panel-variables-dialogs.vto" }}
+    
+{{ /comp }}

@@ -1,0 +1,7 @@
+<div id="{{ id }}" class="ui-menu">
+  {{ for item of items }}
+    {{ comp MenuItem ({ target: item.target, icon: item.icon, size: item.size, selected: item.selected, title: item.title, event: item.event }) }}
+      {{ item.label }}
+    {{ /comp }}
+  {{ /for }}
+</div>
