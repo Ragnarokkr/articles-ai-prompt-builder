@@ -112,5 +112,5 @@ site.use(terser());
   );
   site.copy(`static/img/icons/developer-icons/${file}-outlined.svg`);
 });
-console.log(Deno.env.get("BASE_URL"));
+
 export default site;
