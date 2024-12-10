@@ -7,7 +7,7 @@ const CustomClasses = {
 
 const CustomEvents = {
   PANELS_OPEN: "panels:open",
-  PANELS_CLOSE: "panels_close",
+  PANELS_CLOSE: "panels:close",
 } as const;
 
 const eventsMap = new Map([
