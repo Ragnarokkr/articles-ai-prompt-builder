@@ -1,7 +1,8 @@
 # Articles AI Prompt Builder
 
-This is a recreational programming proof-of-concept for a Single Page Web Application designed to assist in building
-prompts for AI assistants, with a particular focus on creating textual prompts intended for articles.
+This is a recreational programming proof-of-concept to test how easy it is to build with Lume a Single Page Application
+designed to assist in building prompts for AI assistants, with a particular focus on creating textual prompts intended
+for articles.
 
 The application works as a simple merger and text replacement tool, allowing users to define various configurable
 variables (currently limited to single/multiple selection lists), a system prompt, and multiple pieces of text (referred
