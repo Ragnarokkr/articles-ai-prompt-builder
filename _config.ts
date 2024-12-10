@@ -10,10 +10,7 @@ import icons from "lume/plugins/icons.ts";
 import inline from "lume/plugins/inline.ts";
 import lightningcss, { version } from "lume/plugins/lightningcss.ts";
 import minify_html from "lume/plugins/minify_html.ts";
-// import modify_urls from "lume/plugins/modify_urls.ts";
-// import redirects from "lume/plugins/redirects.ts";
 import relative_urls from "lume/plugins/relative_urls.ts";
-// import remark from "lume/plugins/remark.ts";
 import resolve_urls from "lume/plugins/resolve_urls.ts";
 import robots from "lume/plugins/robots.ts";
 import sitemap from "lume/plugins/sitemap.ts";
@@ -24,11 +21,11 @@ import esbuildCssPlugin from "npm:esbuild-plugin-inline-import";
 
 const site = lume({
   src: "./src",
-  location: new URL("https://raiondev.netsons.org/projects/ai/articles-ai-prompt-builder/"),
   components: {
     cssFile: "/static/css/components.css",
     jsFile: "/static/scripts/components.js",
   },
+  ...(Deno.env.has("BASE_URL") ? { location: new URL(Deno.env.get("BASE_URL") as string) } : {}),
 });
 
 site.use(base_path());
@@ -72,10 +69,7 @@ site.use(lightningcss({
   },
 }));
 site.use(minify_html());
-// site.use(modify_urls());
-// site.use(redirects());
 site.use(relative_urls());
-// site.use(remark());
 site.use(resolve_urls());
 site.use(robots());
 site.use(sitemap());
@@ -118,5 +112,5 @@ site.use(terser());
   );
   site.copy(`static/img/icons/developer-icons/${file}-outlined.svg`);
 });
-
+console.log(Deno.env.get("BASE_URL"));
 export default site;
