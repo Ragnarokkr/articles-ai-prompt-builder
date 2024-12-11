@@ -28,8 +28,10 @@
   <textarea id="{{ id }}" name="{{ id }}"
     {{ if event }} data-{{ event.type }}="{{ event.name }}" {{ /if }}
     {{ if params }} data-params="{{ params }}" {{ /if }}
-    {{ if disabled }} disabled {{ /if }}
     {{ if placeholder }} placeholder="{{ placeholder }}" {{ /if }}
+    {{ if autofocus }} autofocus {{ /if }}
+    {{ if autocorrect }} autocorrect {{ /if }}
+    {{ if disabled }} disabled {{ /if }}
   ></textarea>
 
   {{ else }}
