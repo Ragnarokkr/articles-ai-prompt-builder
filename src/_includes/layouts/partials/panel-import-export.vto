@@ -4,7 +4,7 @@
     {{ comp.input ({ id: "import-file", type: "file" }) }}
   </div> 
   <div class="row">
-    <p id="panel-info-message">Always check for correctness of data before to import from untrusted sources.</p>
+    <p id="panel-info-message">Always check the correctness of data before to import from untrusted sources.</p>
   </div>
   <div class="row">
     {{ comp Button ({ id: "btn-import", icon: "upload:outlined", size: "medium", color: "action", flat: true, event: { type: "click", name: "panel:import-export:import" } }) }}Import{{ /comp }}
@@ -14,7 +14,7 @@
 
   {{ comp Dialog ({ id: "dialog-import" }) }}
     {{ comp DialogContent }}
-      <p>Drop a file here to import into the application.</p>
+      <p>Drag and drop a file here to import it into the application.</p>
     {{ /comp }}
   {{ /comp }}
 {{ /comp }}
