@@ -55,5 +55,8 @@
   "[vento]": {
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "vscode.html-language-features",
-  }
+  },
+  "conventionalCommits.scopes": [
+    "options"
+  ]
 }
