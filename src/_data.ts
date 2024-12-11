@@ -1,5 +1,5 @@
 export const appName = "Articles AI Prompt Builder";
-export const appVersion = "0.1.1ɑ";
+export const appVersion = "0.1.2ɑ";
 export const appCodeName = "liminal-selkie";
 export const appAuthor = `<a href="https://raiondev.netsons.org/">RaionDev</a>`;
 export const appLicense = "Released under MIT License";
