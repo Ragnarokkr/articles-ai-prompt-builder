@@ -3,6 +3,7 @@ import { type DatabaseModel, type ServiceData } from "./model.ts";
 import * as Events from "./utils/events.ts";
 import Context from "./utils/context.ts";
 import Database from "./utils/database.ts";
+import Options, { type OptionDescriptor } from "./options/options.ts";
 
 import Drawer from "./ui/drawer/drawer.ts";
 import Menu from "./ui/menu/menu.ts";
@@ -27,12 +28,19 @@ const services: ServiceData[] = [
 Events.init("#app");
 
 Context.create("app");
+
+Context.set("app.options", new Set(Options));
+
 Context.set(
   "app.db",
   new Database<DatabaseModel>("articlesAI", {
     variables: [],
     systemPrompt: "",
-    options: { enableSEO: true },
+    options: Object.fromEntries(
+      Options.map(
+        (o: OptionDescriptor) => [o.id, o.defaultValue],
+      ),
+    ),
   }),
 );
 
