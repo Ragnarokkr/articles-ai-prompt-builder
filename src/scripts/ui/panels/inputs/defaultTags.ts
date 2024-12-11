@@ -1,11 +1,10 @@
-import { DatabaseModel } from "../../../model.ts";
+import { OptionDescriptor } from "../../../options/options.ts";
 import Context from "../../../utils/context.ts";
-import Database from "../../../utils/database.ts";
 import { type ChipDescriptor, type TagDescriptor } from "./model.ts";
 
 type DefaultTagDescriptor = {
   name: string;
-  setup: (text?: string) => string;
+  setup: (...params: string[]) => string;
 };
 
 function replaceFn(match: string) {
@@ -14,12 +13,18 @@ function replaceFn(match: string) {
   if (!setup) {
     const compositeTag = tag.split(":");
     for (const defaultTag of defaultTags) {
-      if (defaultTag.name == compositeTag[0]) {
-        return defaultTag.setup(compositeTag[1]);
+      if (defaultTag.name === compositeTag[0]) {
+        return defaultTag.setup(...compositeTag.slice(1));
+      }
+    }
+    const options = Context.get("app.options") as OptionDescriptor[];
+    for (const option of options) {
+      if (option.id === compositeTag[0]) {
+        return option.fn(...compositeTag.slice(1));
       }
     }
     return "";
-  } else return setup.join(",");
+  } else return setup.join(", ");
 }
 
 const defaultTags: DefaultTagDescriptor[] = [
@@ -31,16 +36,9 @@ const defaultTags: DefaultTagDescriptor[] = [
       (Context.get("inputs.chips") as ChipDescriptor[]).forEach((chip) => {
         context.push(chip.content);
       });
-      return context.join("\n").replace(/\{\{(\w+)\}\}/g, replaceFn);
-    },
-  },
-  {
-    name: "seo",
-    setup: (text: string = ""): string => {
-      const db = Context.get("app.db") as Database<DatabaseModel>;
-      const options = db.query("options") as Record<string, boolean>;
-      if (options["enableSEO"]) return text;
-      else return "";
+      return context.join("\n")
+        .replace("{{context}}", "")
+        .replace(/\{\{(\w+)\}\}/g, replaceFn);
     },
   },
 ] as const;
