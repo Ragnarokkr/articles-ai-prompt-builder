@@ -13,7 +13,8 @@ final output is then returned to the user for a final review before copying and 
 assistant.
 
 The options are still a work in progress, and I am considering additional features. Currently, the application includes
-a flag (`Enable SEO`) to enable or disable the use of text in chips based on these settings.
+an option (**Enable SEO**) that can be tagged within chips to enable or disable specific text based on its value
+(checked or unchecked).
 
 Finally, there is a help page where I try to explain as much as I can about how the application works.
 
@@ -24,16 +25,22 @@ before reaching a stable release.
 
 There are a few predefined variables that the user can use in the system prompt and chip text:
 
-| Variable    | Syntax         | Description                                                                                                                            |
-| :---------- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------- |
-| **date**    | `{{date}}`     | Placeholder for the current date and time in local format.                                                                             |
-| **context** | `{{context}}`  | It's the placeholder for the merged chips.                                                                                             |
-| **seo**     | `{{seo:text}}` | It corresponds to the **Enable SEO** option. It acts as a flag; if checked, the text will be used; otherwise, nothing will be printed. |
+| Variable    | Syntax        | Description                                                |
+| :---------- | :------------ | :--------------------------------------------------------- |
+| **date**    | `{{date}}`    | Placeholder for the current date and time in local format. |
+| **context** | `{{context}}` | It's the placeholder for the merged chips.                 |
+
+## Options
+
+Options can be tagged in text using their IDs (e.g., the option **Enable SEO** can be specified with the tag
+`{{enableSEO:text}}`).
 
 ## TODOs
 
 - [ ] Add a filtering system in the variables configuration dialog.
-- [ ] Filtering chips to prevent the use of `{{context}}`, which can generate infinite loops.
+- [x] Filtering chips to prevent the use of `{{context}}`, which can generate infinite loops.
 - [ ] Fine tune light and dark themes to enhance the user experience.
 - [ ] Implement automatic filters to apply to the chips during the merging process.
+- [x] Implement a dynamic options system for easier management of additional options, related data, and functions.
 - [ ] Increase the number of predefined variables, which could potentially increase the number of options.
+- [ ] Implement locales support.

@@ -90,9 +90,17 @@
   <table class="ui-table">
     <thead><tr><th>Variable</th><th>Syntax</th><th>Description</th></tr></thead>
     <tbody>
-      <tr><td><strong>context</strong></td><td><code>{{ "{{context}}" }}</code></td><td>this is the placeholder for all the text chips defined in Inputs section. <strong>BE CAREFUL!</strong> Never use it inside text chips, as it will generate an infinite loop that could crash the app.</td></tr>
+      <tr><td><strong>context</strong></td><td><code>{{ "{{context}}" }}</code></td><td>this is the placeholder for all the text chips defined in Inputs section.</td></tr>
       <tr><td><strong>date</strong></td><td><code>{{ "{{date}}" }}</code></td><td>prints out current date</td></tr>
-      <tr><td><strong>seo</strong></td><td><code>{{ "{{seo:text}}" }}</code></td><td>it corresponds to the "Enable SEO" option. If the option is set, 'text' will be printed; otherwise, nothing will be printed.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Options</h3>
+  <p>Options can be tagged within chips by using their ID between double curly brackets.</p>
+  <table class="ui-table">
+    <thead><tr><th>Option</th><th>Syntax</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Enable SEO</strong></td><td><code>{{ "{{enableSEO:text}}" }}</code></td><td>prints out <em>text</em> if the option is checked, or nothing otherwise.</td></tr>
     </tbody>
   </table>
 </div>
