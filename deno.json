@@ -1,6 +1,6 @@
 {
   "imports": {
-    "lume/": "https://deno.land/x/lume@v2.4.2/"
+    "lume/": "https://deno.land/x/lume@v2.4.3/"
   },
   "tasks": {
     "lume": "echo \"import 'lume/cli.ts'\" | deno run --env-file -A -",
@@ -17,9 +17,17 @@
   "fmt": {
     "indentWidth": 2,
     "lineWidth": 120,
-    "exclude": ["_site/", "node_modules/", ".git/"]
+    "exclude": [
+      "_site/",
+      "node_modules/",
+      ".git/"
+    ]
   },
   "lint": {
-    "exclude": ["_site/", "node_modules/", ".git/"]
+    "exclude": [
+      "_site/",
+      "node_modules/",
+      ".git/"
+    ]
   }
 }
