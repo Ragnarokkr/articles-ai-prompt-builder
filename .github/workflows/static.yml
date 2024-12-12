@@ -21,7 +21,7 @@ jobs:
         uses: denoland/setup-deno@v2
 
       - name: Build site
-        run: deno task build --location=$BASE_URL
+        run: deno task build --location=${{ vars.BASE_URL }}
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
