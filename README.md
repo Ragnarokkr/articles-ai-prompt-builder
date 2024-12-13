@@ -38,14 +38,15 @@ Options can be tagged in text using their IDs (e.g., the option **Enable SEO** c
 ## TODOs
 
 - [ ] Add a filtering system in the variables configuration dialog.
+- [x] Add newline between chips.
 - [x] Filtering chips to prevent the use of `{{context}}`, which can generate infinite loops.
 - [ ] Fine tune light and dark themes to enhance the user experience.
-- [ ] Implement automatic filters to apply to the chips during the merging process.
 - [x] Implement a dynamic options system for easier management of additional options, related data, and functions.
-- [ ] Increase the number of predefined variables, which could potentially increase the number of options.
+- [ ] Implement automatic filters to apply to the chips during the merging process.
 - [ ] Implement locales support.
-- [ ] Add newline between chips.
+- [ ] Increase the number of predefined variables, which could potentially increase the number of options.
 - [ ] Keep the state of choices in variable's setup.
+- [ ] Make options filterable based on their taggable or untaggable status.
 
 ## License
 
